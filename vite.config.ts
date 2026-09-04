@@ -54,7 +54,8 @@ export default defineConfig(({ command }) => {
       react(),
       isBuild &&
         nitro({
-          preset: "cloudflare-module",
+          preset: "cloudflare_pages",
+          compatibilityDate: "2026-09-04",
         }),
     ].filter(Boolean),
   };
