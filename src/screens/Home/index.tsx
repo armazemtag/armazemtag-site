@@ -5,8 +5,6 @@ import heroHome from "@/assets/hero-home.png";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CategoryGrid } from "@/components/CategoryGrid";
-import { MarketGrid } from "@/components/MarketGrid";
-import { OfferMural } from "@/components/OfferMural";
 import { SolutionsGrid } from "@/components/SolutionsGrid";
 import { FaqBlock } from "@/components/FaqBlock";
 import { CourierCta } from "@/components/CourierCta";
@@ -42,9 +40,9 @@ export function Home() {
       </section>
 
       <CategoryGrid />
-      <MarketGrid />
-      <OfferMural />
-      <SolutionsGrid />
+      <div className="pt-2 sm:pt-4">
+        <SolutionsGrid />
+      </div>
 
       {/* FAQ + CTA */}
       <section className="section-shell grid gap-4 pb-10 lg:grid-cols-[.9fr_1.1fr]">
