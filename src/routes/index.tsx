@@ -35,12 +35,12 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const categories = [
+const categories: Array<[string, string]> = [
   ["Açaí", "sprite-1"], ["Padaria", "sprite-2"], ["Mercado", "sprite-3"],
   ["Frutas", "sprite-4"], ["Refeições", "sprite-5"], ["Gás", "sprite-6"],
 ];
 
-const offers = [
+const offers: Array<[string, string, string, string]> = [
   ["Reino do Açaí", "Açaí na tigela", "R$ 19,90", "sprite-1"],
   ["Padaria Pão Quente", "Pães quentinhos agora", "R$ 7,50", "sprite-2"],
   ["Horta da Vila", "Cesta fresca do dia", "R$ 24,90", "sprite-3"],
