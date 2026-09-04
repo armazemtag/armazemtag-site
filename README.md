@@ -1,24 +1,78 @@
-# Landing Page Clone
+# Armazém Tag Site
 
-crie uma lading page indentica a essa
+Site institucional do **Armazém Tag** — delivery local que conecta comércios, consumidores e entregadores.
 
-This project was built with [Lovable](https://lovable.dev).
+## Tech Stack
 
-## Build with Lovable
+- **Framework:** TanStack Start (SSR) + TanStack Router
+- **UI:** React 19 + shadcn/ui (New York style)
+- **Styling:** Tailwind CSS v4
+- **Build:** Vite 8 + Nitro
+- **Ícones:** Lucide React
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7e5e2dc1-2f31-438a-860a-9d5ffa1e1e22).
+## Estrutura
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+```
+src/
+  screens/          # Telas/páginas do site
+    Home/
+      index.tsx
+      styles.ts
+      components/   # Componentes específicos da tela
+        SectionTitle/
+        ProductCrop/
+  components/       # Componentes reutilizáveis
+    Header/
+    Footer/
+    ui/             # shadcn/ui components
+  assets/           # Imagens, fontes e estáticos
+  hooks/            # Hooks customizados
+  lib/              # Utilitários e helpers
+  services/         # Camada de serviços
+  utils/            # Funções utilitárias
+  types/            # Definições de tipo
+```
 
-## Development
+## Desenvolvimento
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+### Pré-requisitos
+
+- Node.js 18+ ([install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
+
+### Instalação
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+git clone <url-do-repositorio>
+cd armazemtag-site
+npm install
+```
+
+### Dev server
+
+```sh
 npm run dev
+```
+
+### Build
+
+```sh
+npm run build
+```
+
+### Preview
+
+```sh
+npm run preview
+```
+
+### Lint
+
+```sh
+npm run lint
+```
+
+### Format
+
+```sh
+npm run format
 ```

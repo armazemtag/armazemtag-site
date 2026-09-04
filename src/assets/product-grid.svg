@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024">
+  <rect width="1536" height="1024" fill="#f5e6d3"/>
+  <!-- Row 1 -->
+  <rect x="0" y="0" width="512" height="512" fill="#e8d5b7" stroke="#d4c4a8" stroke-width="2"/>
+  <text x="256" y="260" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#8b7355">Açaí</text>
+  <rect x="512" y="0" width="512" height="512" fill="#d4e8d0" stroke="#c4d8c0" stroke-width="2"/>
+  <text x="768" y="260" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#557b55">Padaria</text>
+  <rect x="1024" y="0" width="512" height="512" fill="#e8e0d0" stroke="#d8d0c0" stroke-width="2"/>
+  <text x="1280" y="260" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#7b6b55">Mercado</text>
+  <!-- Row 2 -->
+  <rect x="0" y="512" width="512" height="512" fill="#e8d0d0" stroke="#d8c0c0" stroke-width="2"/>
+  <text x="256" y="772" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#7b5555">Frutas</text>
+  <rect x="512" y="512" width="512" height="512" fill="#d0d8e8" stroke="#c0c8d8" stroke-width="2"/>
+  <text x="768" y="772" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#55557b">Refeições</text>
+  <rect x="1024" y="512" width="512" height="512" fill="#e8e0d0" stroke="#d8d0c0" stroke-width="2"/>
+  <text x="1280" y="772" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#7b6b55">Gás</text>
+</svg>
