@@ -168,6 +168,18 @@
   margin-inline: auto;
 }
 
+@utility product-sprite {
+  width: 300%;
+  height: 200%;
+}
+
+@utility sprite-1 { transform: translate(0, 0); }
+@utility sprite-2 { transform: translate(-33.333%, 0); }
+@utility sprite-3 { transform: translate(-66.666%, 0); }
+@utility sprite-4 { transform: translate(0, -50%); }
+@utility sprite-5 { transform: translate(-33.333%, -50%); }
+@utility sprite-6 { transform: translate(-66.666%, -50%); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }

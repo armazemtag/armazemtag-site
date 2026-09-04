@@ -36,17 +36,17 @@ export const Route = createFileRoute("/")({
 });
 
 const categories = [
-  ["Açaí", "object-left-top"], ["Padaria", "object-center-top"], ["Mercado", "object-right-top"],
-  ["Frutas", "object-left-bottom"], ["Refeições", "object-center-bottom"], ["Gás", "object-right-bottom"],
+  ["Açaí", "sprite-1"], ["Padaria", "sprite-2"], ["Mercado", "sprite-3"],
+  ["Frutas", "sprite-4"], ["Refeições", "sprite-5"], ["Gás", "sprite-6"],
 ];
 
 const offers = [
-  ["Reino do Açaí", "Açaí na tigela", "R$ 19,90", "object-left-top"],
-  ["Padaria Pão Quente", "Pães quentinhos agora", "R$ 7,50", "object-center-top"],
-  ["Horta da Vila", "Cesta fresca do dia", "R$ 24,90", "object-right-top"],
-  ["Frutas da Marlene", "Manga docinha chegou", "R$ 5,90", "object-left-bottom"],
-  ["Marmitas da Ana", "Almoço caseiro", "R$ 12,90", "object-center-bottom"],
-  ["Gás do Bruno", "Botijão com entrega", "R$ 115,00", "object-right-bottom"],
+  ["Reino do Açaí", "Açaí na tigela", "R$ 19,90", "sprite-1"],
+  ["Padaria Pão Quente", "Pães quentinhos agora", "R$ 7,50", "sprite-2"],
+  ["Horta da Vila", "Cesta fresca do dia", "R$ 24,90", "sprite-3"],
+  ["Frutas da Marlene", "Manga docinha chegou", "R$ 5,90", "sprite-4"],
+  ["Marmitas da Ana", "Almoço caseiro", "R$ 12,90", "sprite-5"],
+  ["Gás do Bruno", "Botijão com entrega", "R$ 115,00", "sprite-6"],
 ];
 
 const marketCards = ["Feira 8 de Maio", "Feira do Centro", "Mercado Municipal"];
@@ -85,7 +85,7 @@ function Index() {
         <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
           {categories.map(([name, position]) => (
             <a key={name} href="#ofertas" className="group overflow-hidden rounded-card border border-border bg-card p-2 text-center shadow-soft transition hover:-translate-y-1 hover:border-primary/30">
-              <img src={productAsset.url} alt={name} width={1536} height={1024} loading="lazy" className={`aspect-square w-full rounded-md object-cover ${position}`} />
+              <ProductCrop name={name} position={position} />
               <span className="mt-2 block text-xs font-bold sm:text-sm">{name}</span>
             </a>
           ))}
@@ -113,7 +113,7 @@ function Index() {
           <div className="flex flex-col justify-center p-7 lg:p-8"><BadgePercent className="mb-6 size-12 rounded-full bg-background p-3 text-primary" /><h2 className="font-display text-3xl font-extrabold">Mural de ofertas</h2><p className="mt-3 text-sm text-muted-foreground">Ofertas e novidades dos comércios locais, atualizadas todos os dias.</p><Button asChild variant="hero" className="mt-8 w-fit"><a href="#como-funciona">Ver todas as ofertas <ArrowRight /></a></Button></div>
           <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
             {offers.map(([store, title, price, position]) => (
-              <article key={title} className="bg-card p-3"><div className="flex items-center justify-between text-[10px]"><span className="font-bold">{store}</span><span className="rounded-sm border border-primary/30 px-1.5 py-0.5 text-primary">Chegou agora</span></div><img src={productAsset.url} alt={title} width={1536} height={1024} loading="lazy" className={`mt-2 h-28 w-full object-cover ${position}`} /><h3 className="mt-2 font-display font-bold leading-tight">{title}</h3><div className="mt-2 flex items-center justify-between text-xs"><span className="font-bold text-primary">{price}</span><span className="text-muted-foreground">♡ 128</span></div></article>
+              <article key={title} className="bg-card p-3"><div className="flex items-center justify-between text-[10px]"><span className="font-bold">{store}</span><span className="rounded-sm border border-primary/30 px-1.5 py-0.5 text-primary">Chegou agora</span></div><div className="mt-2"><ProductCrop name={title} position={position} /></div><h3 className="mt-2 font-display font-bold leading-tight">{title}</h3><div className="mt-2 flex items-center justify-between text-xs"><span className="font-bold text-primary">{price}</span><span className="text-muted-foreground">♡ 128</span></div></article>
             ))}
           </div>
         </div>
@@ -155,4 +155,8 @@ function Index() {
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return <div className="mb-5 flex items-center justify-center gap-4"><span className="h-px w-7 bg-primary"/><h2 className="font-display text-xl font-extrabold sm:text-2xl">{children}</h2><span className="h-px w-7 bg-primary"/></div>;
+}
+
+function ProductCrop({ name, position }: { name: string; position: string }) {
+  return <div className="aspect-square overflow-hidden rounded-md"><img src={productAsset.url} alt={name} width={1536} height={1024} loading="lazy" className={`product-sprite max-w-none ${position}`} /></div>;
 }
