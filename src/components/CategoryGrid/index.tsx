@@ -23,7 +23,7 @@ const categories = [
   { name: "Água", image: aguaIcon },
 ] as const;
 
-export function CategoryGrid() {
+export function CategoryGrid({ compact = false }: { compact?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ startX: 0, startScroll: 0, dragging: false, moved: false });
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -95,8 +95,10 @@ export function CategoryGrid() {
   };
 
   return (
-    <section className="section-shell relative pt-7 pb-8 sm:pt-11 sm:pb-12">
-      <SectionTitle>Categorias em destaque</SectionTitle>
+    <section
+      className={`section-shell relative pt-7 pb-8 sm:pt-11 sm:pb-12${compact ? " category-grid--compact" : ""}`}
+    >
+      <SectionTitle>Categorias com pronta entrega</SectionTitle>
       <div className="relative">
         <button
           type="button"
@@ -119,7 +121,7 @@ export function CategoryGrid() {
         <div
           ref={containerRef}
           role="region"
-          aria-label="Categorias em destaque"
+          aria-label="Categorias com pronta entrega"
           tabIndex={0}
           onClickCapture={handleClickCapture}
           onPointerDown={handlePointerDown}

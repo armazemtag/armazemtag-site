@@ -7,7 +7,7 @@ export const Route = createFileRoute("/como-funciona")({
       { title: "Como funciona | Armazém Tag" },
       {
         name: "description",
-        content: "App do Cliente, App do Parceiro, App do Entregador e Área do Empreendedor.",
+        content: "App do Cliente, App do Parceiro e App Entregador.",
       },
     ],
   }),

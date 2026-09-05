@@ -2,27 +2,30 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SectionTitle } from "@/components/SectionTitle";
 import appClienteMockup from "@/assets/images/empresas/app-cliente.png";
+import appParceiroMockup from "@/assets/images/empresas/app-parceiro.png";
+import appEntregadorMockup from "@/assets/images/empresas/app-entregador.png";
 
 const solutions = [
   {
     title: "App do Cliente",
     text: "Compre em poucos cliques e receba rapidinho.",
     to: "/como-funciona",
+    mockup: appClienteMockup,
+    deviceAlt: "Aplicativo Armazém Tag em um smartphone",
   },
   {
     title: "App do Parceiro",
     text: "Gerencie seu negócio e receba pedidos.",
     to: "/estabelecimentos",
+    mockup: appParceiroMockup,
+    deviceAlt: "Aplicativo Armazém Tag do parceiro em um smartphone",
   },
   {
-    title: "App do Entregador",
+    title: "App Entregador",
     text: "Mais entregas feitas, trabalho com flexibilidade.",
     to: "/entregadores",
-  },
-  {
-    title: "Área do Empreendedor",
-    text: "Acompanhe vendas e gestão em um só lugar.",
-    to: "/como-funciona",
+    mockup: appEntregadorMockup,
+    deviceAlt: "Aplicativo Armazém Tag do entregador em um smartphone",
   },
 ] as const;
 
@@ -32,54 +35,49 @@ export function SolutionsGrid() {
       <SectionTitle className="solutions-section__title">
         Nossas soluções para todos
       </SectionTitle>
-      <div className="grid gap-3 md:grid-cols-4 mt-1 sm:mt-2">
-        {solutions.map(({ title, text, to }, i) => {
-          const isClient = i === 0;
-
-          if (isClient) {
-            return (
-              <article
-                key={title}
-                className="solution-card solution-card--client min-h-48 rounded-card bg-tint p-5"
-              >
-                <div className="solution-card__content">
-                  <span className="text-xs font-bold text-primary">
-                    SOLUÇÃO 0{i + 1}
-                  </span>
-                  <h3 className="mt-5 font-display text-xl font-extrabold">
-                    {title}
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{text}</p>
-                  <Link
-                    to={to}
-                    className="mt-7 inline-flex items-center gap-2 text-xs font-bold text-primary"
-                  >
-                    Conhecer agora <ArrowRight className="size-3" />
-                  </Link>
-                </div>
-                <img
-                  src={appClienteMockup}
-                  alt="Aplicativo Armazém Tag exibido em um smartphone"
-                  className="solution-card__device"
-                />
-              </article>
-            );
-          }
+      <div className="grid gap-3 md:grid-cols-3 mt-1 sm:mt-2">
+        {solutions.map(({ title, text, to, mockup, deviceAlt }, i) => {
+          const isFeatured = Boolean(mockup);
+          const cardClasses = `rounded-card ${
+            i === 1 ? "bg-[#faf9f8]" : i % 2 === 0 ? "bg-tint" : "bg-soft"
+          }${
+            isFeatured ? " solution-card solution-card--client" : " min-h-48 p-5"
+          }`;
 
           return (
-            <article
-              key={title}
-              className={`min-h-48 rounded-card p-5 ${i % 2 === 0 ? "bg-tint" : "bg-soft"}`}
-            >
-              <span className="text-xs font-bold text-primary">SOLUÇÃO 0{i + 1}</span>
-              <h3 className="mt-5 font-display text-xl font-extrabold">{title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{text}</p>
-              <Link
-                to={to}
-                className="mt-7 inline-flex items-center gap-2 text-xs font-bold text-primary"
-              >
-                Conhecer agora <ArrowRight className="size-3" />
-              </Link>
+            <article key={title} className={cardClasses}>
+              <div className={isFeatured ? "solution-card__content" : undefined}>
+                <span
+                  className={`text-xs font-bold text-primary${isFeatured ? " solution-card__eyebrow" : ""}`}
+                >
+                  SOLUÇÃO 0{i + 1}
+                </span>
+                <h3
+                  className={`font-display text-xl font-extrabold${isFeatured ? " solution-card__title" : " mt-5"}`}
+                >
+                  {title}
+                </h3>
+                <p
+                  className={`text-sm text-muted-foreground${isFeatured ? " solution-card__description" : " mt-2"}`}
+                >
+                  {text}
+                </p>
+                <Link
+                  to={to}
+                  className={`${isFeatured ? "solution-card__link " : "mt-7 "}inline-flex items-center gap-2 text-xs font-bold text-primary`}
+                >
+                  Conhecer agora <ArrowRight className="size-3" />
+                </Link>
+              </div>
+              {isFeatured && (
+                <div className="solution-card__device-wrapper">
+                  <img
+                    src={mockup}
+                    alt={deviceAlt}
+                    className="solution-card__device"
+                  />
+                </div>
+              )}
             </article>
           );
         })}

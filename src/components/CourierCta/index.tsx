@@ -7,19 +7,20 @@ export function CourierCta() {
   return (
     <div
       id="entregadores"
-      className="grid overflow-hidden rounded-section bg-tint sm:grid-cols-[1fr_.85fr]"
+      className="grid overflow-hidden rounded-section bg-tint sm:grid-cols-[1fr_.85fr] lg:h-[371px] lg:min-h-[371px] lg:self-start"
     >
       <div className="flex flex-col justify-center p-7">
         <h2 className="font-display text-3xl font-extrabold">
-          O bairro é seu.
-          <br />A entrega é nossa.
+          O entregador é seu.
+          <br />A tecnologia é nossa.
         </h2>
         <p className="mt-3 text-sm text-muted-foreground">
-          Mais do que um app de entrega, um movimento de conexão e crescimento local.
+          Você escolhe quem entrega. A Armazém Tag organiza os pedidos, o acompanhamento e a
+          comunicação em um só lugar.
         </p>
         <Button asChild variant="hero" className="mt-6 w-fit">
           <Link to="/entregadores">
-            Conhecer mais <ArrowRight />
+            Conhecer a plataforma <ArrowRight />
           </Link>
         </Button>
       </div>

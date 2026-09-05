@@ -39,13 +39,13 @@ export function Home() {
         </div>
       </section>
 
-      <CategoryGrid />
+      <CategoryGrid compact />
       <div className="pt-2 sm:pt-4">
         <SolutionsGrid />
       </div>
 
       {/* FAQ + CTA */}
-      <section className="section-shell grid gap-4 pb-10 lg:grid-cols-[.9fr_1.1fr]">
+      <section className="section-shell grid gap-4 pb-10 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
         <FaqBlock />
         <CourierCta />
       </section>
